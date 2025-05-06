@@ -29,7 +29,8 @@ To apply the matlab code to all images in a directory (dir_in) and write out the
 
 See the description in the function   'Segment_all_Images.m' for further information.
 
-To try the code on the two provided example images, follow these steps ('path_to_directory' is the directoy of the downloaded code) :
+To try the code on the two provided example images, follow these steps ('path_to_directory' is the directoy of the downloaded code):
+
 
    (1) addpath(genpath('path_to_directory'));
    
