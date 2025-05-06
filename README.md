@@ -21,10 +21,10 @@ The code can be applied to:
 To apply the matlab code to all images in a directory (dir_in) and write out the segmentation results in the directory 'dir_out', apply the following code in matlab:
 
     (1) Tiff images:
-          [Binary_Segmentation,Visualize_Segmentation] = Segment_all_Images(dir_in, dir_out);
+          [Binary_Segmentation,Visualize_Segmentation] = Segment_All_Images(dir_in, dir_out);
     
     (2) PNG images (2 PNG images are included in the code to try the provided code on them):
-          [Binary_Segmentation,Visualize_Segmentation] = Segment_all_Images(dir_in, dir_out, 'ImageFormat','PNG');
+          [Binary_Segmentation,Visualize_Segmentation] = Segment_All_Images(dir_in, dir_out, 'ImageFormat','PNG');
     
 
 See the description in the function   'Segment_all_Images.m' for further information.    
