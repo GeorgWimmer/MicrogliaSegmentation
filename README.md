@@ -27,4 +27,4 @@ To apply the matlab code to all images in a directory (dir_in) and write out the
           [Binary_Segmentation,Visualize_Segmentation] = Segment_all_Images(dir_in, dir_out, 'ImageFormat','PNG');
     
 
-See the description in the function  function 'Segment_all_Images.m' for further information .    
+See the description in the function   'Segment_all_Images.m' for further information.    
