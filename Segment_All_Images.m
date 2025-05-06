@@ -3,43 +3,43 @@ function [Binary_Segmentation,Visualize_Segmentation] = Segment_all_Images(Data_
 %   
 %   Parameters are:
 % 
-%       Data_in             Directory in which are the images to be
+%       'Data_in'             Directory in which are the images to be
 %                           segmented
 % 
-%       Data_out            Directory where the segmented images are written out 
+%       'Data_out'            Directory where the segmented images are written out 
 %   
-%         
-%       Seedpoints           To use either sure seedpoints ('sure') or also 
-%                           only probably correct  seedpoints ('probable') (=default) for microglia 
-%                           segmentation (nucli that are inside microglia) 
 %
-%       'ImageFormat'   What image format is used. Either an Tiff image,
+%      'ImageFormat'   What image format is used ('Tiff' or 'PNG'). Either an Tiff image,
 %                       where, we need to define which channels are
-%                       containing microglia data and which Nucleus data.
+%                       containing microglia data (Iba1 channels) and which Nucleus data (DAPI channels).
 %                        Or PNG images, which are already processed to have
-%                        the microglia information in the firs and the
-%                        Nucleus information in the third channel.
+%                        the microglia information (maximum intensity projection over the Iba1-channels) in the first and the
+%                        Nucleus information (maximum intensity projection over the DAPI-channels)  in the third channel.
+%                        The second image channel is empty (zeros)    
 %
 %     
-%       'NucleusChannels'  What channels are Nucleus channels. Needs a
+%      'NucleusChannels'  What channels are Nucleus channels (only needed for tiff images). Needs a
 %                           starting nummer and a stop number. E.g [1,7]
 %                           means that the first seven channels of the Tiff image
 %                           are Nucleus channels (Maximum intensity
 %                           projection is carried out to reduce the information
 %                           to one channel)
 %       
-%       'MicrogliaChannels'   What channels are microglia channels. Needs a
+%      'MicrogliaChannels'   What channels are microglia channels  (only needed for tiff images). Needs a
 %                           starting nummer and a stop number.
 %
-%       'DenoiseFactor'   How strict is the denoising process. The higher the
+%      'DenoiseFactor'   How strict is the denoising process. The higher the
 %                          value, the more image parts are removed by the
 %                          denoising process
 %
+% Outputs are the binary segmentation mask (microglia and their nuclei)
+%
 %%%%%Exemplar application
-% Data_in='/home/pma/gwimmer/texture/mfiles/SCI/App';
-% Data_out='/home/pma/gwimmer/texture/mfiles/SCI/App/output_all';
+%% for tiff images
+% Data_in='path_to_the_tiff_images'; %directory where the tiff images are that should be segmented
+% Data_out='path_were_the_segmented_images_should_be_written_out';
 % [Binary_Segmentation,Visualize_Segmentation] = Segment_All_Images(Data_in, Data_out)
-% or 
+%% or for png images  
 %[Binary_Segmentation,Visualize_Segmentation] = Segment_All_Images(Data_in, Data_out, 'ImageFormat','PNG')
 
 
@@ -80,7 +80,6 @@ function [Binary_Segmentation,Visualize_Segmentation] = Segment_all_Images(Data_
 
 
 
-    %[nuclei_model, denoise_filter, process_recover_filter] = load_models_and_filters();
     [nuclei_model, process_recover_filter] = load_models_and_filters();
 
     filelist=dir(fullfile(Data_in, ending));
