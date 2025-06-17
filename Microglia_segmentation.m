@@ -230,26 +230,6 @@ Binary_Segmentation(:,:,3)=uint8(valid_cores>0)*255;
 
 
 
-% 
-% 
-% 
-% Microglia_labels=bwlabel(Binary_microglia, conn);
-% Nucli_labels=double(valid_cores>0);
-% Nucli_labels=Nucli_labels.*Microglia_labels; %nucleus get the labels from the microglia they belong to 
-% 
-% 
-% 
-
-
-
-
-
-
-
-
-
-
-
 
 
 end
